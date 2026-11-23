@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>神社保衛戰：線上試玩</title>
+<meta name="description" content="教學範例：用 ChatGPT 做出來的網頁遊戲，三個版本都能直接玩。">
+<style>
+  :root {
+    --bg: #f6f4ef; --card: #ffffff; --ink: #1f2430; --muted: #5d6475;
+    --line: #dcd7cc; --accent: #2f6f4f; --accent-ink: #ffffff; --bad: #a3402f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111521; --card: #1a2030; --ink: #eceff6; --muted: #a2abc0;
+      --line: #2c3550; --accent: #7fd1a3; --accent-ink: #0d1a13; --bad: #f0a08c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.7 system-ui, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 56px; }
+  h1 { margin: 0 0 4px; font-size: 1.9rem; line-height: 1.3; }
+  .sub { margin: 0 0 24px; color: var(--muted); }
+  .play-hint { margin: 0 0 28px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  .versions { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
+  .version { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 16px 18px; }
+  .version h2 { margin: 0 0 2px; font-size: 1.15rem; }
+  .meta { margin: 0 0 8px; color: var(--muted); font-size: .9rem; }
+  .version p { margin: 0 0 12px; }
+  .bug { color: var(--bad); font-weight: 600; }
+  .btn {
+    display: inline-block; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-weight: 600;
+    background: var(--accent); color: var(--accent-ink);
+  }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  section { margin-top: 36px; }
+  section h2 { margin: 0 0 12px; font-size: 1.3rem; }
+  .tracks { display: grid; gap: 10px; padding: 0; margin: 0 0 14px; list-style: none; }
+  .track { display: grid; gap: 4px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  .track b { font-weight: 600; }
+  .track span { color: var(--muted); font-size: .9rem; }
+  .track audio { width: 100%; }
+  .make { padding: 0; margin: 0; list-style: none; display: grid; gap: 8px; }
+  footer { margin-top: 32px; color: var(--muted); font-size: .92rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>《神社保衛戰》線上試玩</h1>
+  <p class="sub">一起來玩玩看吧～這是用 ChatGPT 一步一步做出來的網頁遊戲，也是個教學範例。</p>
+
+  <p class="play-hint">WASD／方向鍵移動，技能會自動施放；手機在畫面上拖曳就能移動。第一次點擊或按鍵後才會有聲音喔～</p>
+
+  <ul class="versions">
+    <li class="version">
+      <h2>v1：第一版</h2>
+      <p class="meta">對應提示詞 1～8</p>
+      <p>沒有聲音，結界和經驗只有數字。<span class="bug">鬼王血條面板蓋住鬼王的頭</span>，傷害數字直接疊在角色身上。</p>
+      <a class="btn" href="完成版/v1-第一版/">玩 v1</a>
+    </li>
+    <li class="version">
+      <h2>v2：加入音效</h2>
+      <p class="meta">對應提示詞 9</p>
+      <p>有 BGM、音效和音量設定，但畫面和 v1 一樣，<span class="bug">血條仍然蓋住鬼王的頭</span>。</p>
+      <a class="btn" href="完成版/v2-加入音效/">玩 v2</a>
+    </li>
+    <li class="version">
+      <h2>v3：UI 優化</h2>
+      <p class="meta">對應提示詞 10</p>
+      <p>鬼王血條移到畫面最上方；結界改成分格條，經驗改成「靈力經驗」條；傷害數字浮在頭頂。</p>
+      <a class="btn" href="完成版/v3-UI優化/">玩 v3</a>
+    </li>
+  </ul>
+
+  <section id="offline">
+    <h2>下載單機版 🎮</h2>
+    <p>想在自己的電腦玩，不用上網也行：下載這個檔案，<b>雙擊就能開</b>。圖片和音效都包在裡面囉，不用安裝任何東西。請用 Chrome 或 Edge 開啟。</p>
+    <a class="btn" href="神社保衛戰-單機版.html" download>下載單機版（約 17 MB）</a>
+    <p class="meta" style="margin-top:10px">這是最後一版（v3）。想玩 v1、v2，請用上面的線上試玩。</p>
+  </section>
+
+  <section id="sound">
+    <h2>試聽音樂與音效 🎵</h2>
+    <ul class="tracks">
+      <li class="track"><b>開始畫面</b><span>title</span><audio controls preload="none" src="BGM/選定/title.ogg"></audio></li>
+      <li class="track"><b>第 1～5 波戰鬥</b><span>battle</span><audio controls preload="none" src="BGM/選定/battle.ogg"></audio></li>
+      <li class="track"><b>鬼王戰</b><span>boss</span><audio controls preload="none" src="BGM/選定/boss.ogg"></audio></li>
+    </ul>
+    <p><a href="音效/精選/試聽.html">逐一試聽 19 個精選音效</a>。音效和音樂都是 CC0，來源與授權見
+      <a href="https://github.com/MojimojiLab/shrine-defense-demo/blob/main/音效/README.md">音效說明</a>、<a href="https://github.com/MojimojiLab/shrine-defense-demo/blob/main/BGM/README.md">BGM 說明</a>。</p>
+  </section>
+
+  <section id="make">
+    <h2>也想自己做一款嗎？</h2>
+    <ul class="make">
+      <li><a href="https://github.com/MojimojiLab/shrine-defense-demo/blob/main/遊戲企畫.txt">遊戲企畫.txt</a>：第 1 步上傳給 ChatGPT 的企畫</li>
+      <li><a href="https://github.com/MojimojiLab/shrine-defense-demo/blob/main/提示詞.md">提示詞.md</a>：十則提示詞，照順序貼</li>
+      <li><a href="https://github.com/MojimojiLab/shrine-defense-demo/blob/main/檢查清單.md">檢查清單.md</a>：每一步做完對照</li>
+      <li><a href="https://github.com/MojimojiLab/shrine-defense-demo/tree/main/存檔點">存檔點</a>：卡住了別擔心，下載那一步的圖接著做就好</li>
+      <li><a href="https://github.com/MojimojiLab/shrine-defense-demo/archive/refs/heads/main.zip">下載整包 ZIP</a>，或到 <a href="https://github.com/MojimojiLab/shrine-defense-demo">GitHub repo</a> 看全部內容</li>
+    </ul>
+  </section>
+
+  <footer>
+    教學範例，遊戲由 ChatGPT 生成，授權見 repo 的 README。
+  </footer>
+</main>
+</body>
+</html>

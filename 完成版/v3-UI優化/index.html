@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111521"><meta name="description" content="操控巫女，擊退惡靈，守護月夜裡的神社。Pixi.js 自動戰鬥遊戲。"><title>神社保衛戰 · 月夜守護</title><link rel="stylesheet" href="style.css"><script defer src="vendor/pixi.min.js"></script><script type="module" src="game.js"></script></head>
+<body data-phase="ready">
+<main id="game" aria-label="神社保衛戰遊戲畫面"></main>
+<header id="hud" hidden>
+ <div class="hud-brand">神社保衛戰<small>月夜守護</small></div>
+ <div class="stat meter-stat shield-stat">
+  <div class="meter-label"><span id="shieldLabel">神社結界</span><small id="shieldState">穩固</small></div>
+  <div id="health" class="meter shield-meter" role="progressbar" aria-labelledby="shieldLabel" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10"><i id="healthFill"></i></div>
+ </div>
+ <div class="stat wave-stat"><span>波次</span><strong id="wave">1 / 6</strong></div>
+ <div class="stat meter-stat xp-stat">
+  <div class="meter-label"><span id="xpLabel">靈力經驗</span><strong id="level">Lv.1</strong></div>
+  <div id="experience" class="meter xp-meter" role="progressbar" aria-labelledby="xpLabel" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0"><i id="xpFill"></i></div>
+ </div>
+ <div class="stat time-stat"><span>擊退 · 時間</span><strong id="time">0 · 00:00</strong></div>
+ <button id="pause" class="quiet" aria-label="暫停遊戲">暫停</button>
+</header>
+<section id="bossInfo" aria-label="鬼王狀態" hidden>
+ <div class="boss-label"><span id="bossName">災厄鬼王</span><small id="bossMove"></small><strong id="bossHealth">100%</strong></div>
+ <div id="bossMeter" class="meter boss-meter" role="progressbar" aria-labelledby="bossName" aria-valuemin="0" aria-valuemax="3200" aria-valuenow="3200"><i id="bossFill"></i></div>
+</section>
+<div id="toast" role="status"></div>
+<footer id="footer" hidden><div id="skills">護符 Lv.1</div><div class="help">WASD / 方向鍵 移動 <span>·</span> P / Esc 暫停 <span>·</span> 技能自動施放</div></footer>
+<div id="joystick" hidden><i></i></div>
+<section id="overlay" class="overlay">
+ <div id="panel" class="panel intro">
+ <p class="eyebrow">月夜降臨 · 災厄將至</p><h1>神社<span>保衛戰</span></h1>
+ <p class="story">今夜，神社由你守護。</p><p class="description">操控巫女迎擊四方惡靈，收集靈玉強化法術，<br>擊敗災厄鬼王，守住最後一道結界。</p>
+ <button id="start" class="primary" disabled>正在載入素材…</button>
+ <p class="controls">WASD / 方向鍵移動 · 技能全自動<br>觸控裝置可在戰場拖曳移動</p>
+ <div class="rules"><span>神社結界 <b>10</b></span><span>進攻波次 <b>6</b></span><span>最終目標 <b>鬼王</b></span></div>
+ </div>
+</section>
+<details id="audioControls" class="audio-controls">
+ <summary id="audioLabel">開啟聲音</summary>
+ <div class="audio-panel">
+  <strong>聲音設定</strong>
+  <label for="musicVolume">背景音樂 <output id="musicValue" for="musicVolume">60%</output></label>
+  <input id="musicVolume" type="range" min="0" max="100" step="1" value="60">
+  <label for="sfxVolume">音效 <output id="sfxValue" for="sfxVolume">65%</output></label>
+  <input id="sfxVolume" type="range" min="0" max="100" step="1" value="65">
+  <button id="muteAudio" class="quiet" aria-pressed="false">全部靜音</button>
+  <p id="audioHint">首次點擊或按鍵後啟用聲音。</p>
+ </div>
+</details>
+<noscript>請啟用 JavaScript 以遊玩神社保衛戰。</noscript>
+</body></html>
