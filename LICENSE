@@ -21,5 +21,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 This license covers the project's code (the game source under 完成版/).
-Sound effects, music, character art and game images carry their own terms;
-see README.md.
+It does not cover the images and sounds. Character art and game images are
+CC BY-NC 4.0; sound effects and music are CC0. See README.md.
